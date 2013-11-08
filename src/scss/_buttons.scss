@@ -1,4 +1,11 @@
-@mixin button () {
+@mixin button ($width, $height) {
   border: 1px solid #ccc;
-  width: 100px;
+  width: $width;
+  height: $height;
+}
+
+@mixin message () {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
 }

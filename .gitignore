@@ -1,4 +1,5 @@
 dist/*
 node_modules/*
 src/.idea/*
+src/css/app.css
 src/scss/*.css

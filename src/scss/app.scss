@@ -1,15 +1,43 @@
 @import "buttons";
 
-ul.users {
-  list-style: none;
-  width: 400px;
-
-  li {
-    border-bottom: 1px solid #ccc;
-    color: green;
-  }
+.myButton {
+  @include button(120px, 40px);
 }
 
-.myButton {
-  @include button();
+.success {
+  @extend .myButton;
+  border: 1px solid green;
+  color: green;
+}
+
+.warning {
+  @extend .myButton;
+  border: 1px solid yellow;
+  color: yellow;
+}
+
+.error {
+  @extend .myButton;
+  border: 1px solid red;
+  color: red;
+}
+
+
+.message {
+  @include message();
+}
+
+.success1 {
+  @extend .message;
+  border-color: green;
+}
+
+.error1 {
+  @extend .message;
+  border-color: red;
+}
+
+.warning1 {
+  @extend .message;
+  border-color: yellow;
 }
