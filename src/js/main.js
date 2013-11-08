@@ -12,17 +12,21 @@ requirejs.config({
 
 	shim: {
 		"Backbone": {
-			deps: ["underscore", "Jquery"],
+			deps: ["underscore", "jquery"],
 			exports: "Backbone"
 		},
 
 		"underscore": {
 			exports: "_"
-		}
+		},
+
+        "bootstrap": {
+            deps: ["jquery"]
+        }
 	}
 
 });
 
-require(["app/Application"], function (Application) {
+require(["app/Application", "bootstrap"], function (Application) {
 	(new Application()).init();
 });
