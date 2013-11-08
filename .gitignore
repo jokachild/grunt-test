@@ -1,0 +1,4 @@
+dist/*
+node_modules/*
+src/.idea/*
+src/scss/*.css

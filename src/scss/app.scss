@@ -1,0 +1,15 @@
+@import "buttons";
+
+ul.users {
+  list-style: none;
+  width: 400px;
+
+  li {
+    border-bottom: 1px solid #ccc;
+    color: green;
+  }
+}
+
+.myButton {
+  @include button();
+}
