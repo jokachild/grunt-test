@@ -6,10 +6,10 @@ module.exports = function (grunt) {
         requirejs: {
             compile: {
                 options: {
-                    baseUrl: "src/js/lib",
+                    baseUrl: "src/js/",
                     mainConfigFile: "src/js/main.js",
-                    name: "almond",
-                    include: ["../main"],
+                    name: "lib/almond",
+                    include: ["main"],
                     out: "dist/app.min.js"
                 }
             }
@@ -81,6 +81,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask("test", ["jasmine"]);
 
     grunt.registerTask("default", ["jshint", "requirejs", "sass"]);
 

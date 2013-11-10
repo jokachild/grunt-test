@@ -4,10 +4,15 @@
 
 requirejs.config({
 
-	baseUrl: "js/lib",
+	baseUrl: "js/",
 
 	paths: {
-		app: "../app"
+        jquery: "lib/jquery",
+        underscore: "lib/underscore",
+        Backbone: "lib/backbone",
+        text: "lib/text",
+        bootstrap: "lib/bootstrap",
+		app: "app/"
 	},
 
 	shim: {
