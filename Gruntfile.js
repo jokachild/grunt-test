@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-    
+
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
 
@@ -14,8 +14,8 @@ module.exports = function (grunt) {
                 }
             }
         },
-	
-	jshint: {
+
+        jshint: {
             files: ['Gruntfile.js', 'src/js/app/**/*.js'],
             options: {
                 globals: {
@@ -30,6 +30,35 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     "src/css/app.css": "src/scss/app.scss"
+                }
+            }
+        },
+
+        jasmine: {
+            src: "src/js/app/**/*.js",
+            options: {
+                specs: "tests/**/*.js",
+                template: require("grunt-template-jasmine-requirejs"),
+                templateOptions: {
+                    requireConfig: {
+                        baseUrl: "src/js/",
+                        paths: {
+                            underscore: "lib/underscore",
+                            jquery: "lib/jquery",
+                            Backbone: "lib/backbone",
+                            text: "lib/text",
+                            app: "app/"
+                        },
+                        shim: {
+                            underscore: {
+                                exports: "_"
+                            },
+                            Backbone: {
+                                deps: ["underscore", "jquery"],
+                                exports: "Backbone"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -49,8 +78,10 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-sass');
 
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask("default", ["jshint", "requirejs", "sass"]);
-    
+
 };
