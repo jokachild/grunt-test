@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     mainConfigFile: "src/js/main.js",
                     name: "lib/almond",
                     include: ["main"],
-                    out: "dist/app.min.js"
+                    out: "dist/app.js"
                 }
             }
         },
@@ -22,6 +22,17 @@ module.exports = function (grunt) {
                     jQuery: true,
                     console: true,
                     module: true
+                }
+            }
+        },
+
+        uglify: {
+            my_target: {
+                options: {
+                    report: "gzip"
+                },
+                files: {
+                    "dist/app.min.js": ["dist/app.js"]
                 }
             }
         },
@@ -76,6 +87,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
     grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.loadNpmTasks('grunt-contrib-jasmine');
@@ -83,6 +96,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask("test", ["jasmine"]);
+
+    grunt.registerTask("build", ["jshint", "requirejs", "uglify"]);
 
     grunt.registerTask("default", ["jshint", "requirejs", "sass"]);
 
