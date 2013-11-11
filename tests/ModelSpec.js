@@ -15,11 +15,11 @@ define(["app/models/Model"], function (Model) {
             expect(Model).not.toBeNull(true);
         });
 
-        it("should have version 'undefined'", function () {
+        it("should have default version '0.0.1'", function () {
             expect(model.getVersion()).toEqual("0.0.1");
         });
 
-        it("should have version 0.0.2", function () {
+        it("should have version '0.0.2'", function () {
             model.set("version", "0.0.2");
             expect(model.getVersion()).toEqual("0.0.2");
         });

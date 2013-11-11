@@ -12,7 +12,7 @@ requirejs.config({
         Backbone: "lib/backbone",
         text: "lib/text",
         bootstrap: "lib/bootstrap",
-        app: "app/"
+        app: "app"
     },
 
     shim: {
