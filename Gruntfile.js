@@ -27,9 +27,9 @@ module.exports = function (grunt) {
         },
 
         uglify: {
-            my_target: {
+            all: {
                 options: {
-                    report: "gzip"
+                    report: "min"
                 },
                 files: {
                     "dist/app.min.js": ["dist/app.js"]
@@ -99,6 +99,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask("build", ["jshint", "requirejs", "uglify"]);
 
-    grunt.registerTask("default", ["jshint", "requirejs", "sass"]);
+    grunt.registerTask("default", ["jshint", "requirejs", "sass", "jasmine", "uglify"]);
 
 };
