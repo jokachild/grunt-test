@@ -45,6 +45,16 @@ module.exports = function (grunt) {
             }
         },
 
+        compass: {
+            dist: {
+                options: {
+                    sassDir: "src/scss",
+                    cssDir: "src/css",
+                    noLineComments: true
+                }
+            }
+        },
+
         jasmine: {
             src: "src/js/app/**/*.js",
             options: {
@@ -77,7 +87,7 @@ module.exports = function (grunt) {
         watch: {
             sass: {
                 files: ["src/scss/**/*.scss"],
-                tasks: ["sass"]
+                tasks: ["compass"]
             }
         }
 
@@ -90,6 +100,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.loadNpmTasks('grunt-contrib-sass');
+
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 

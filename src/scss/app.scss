@@ -1,43 +1,10 @@
+//@import "compass/reset";
+@import "compass/css3";
+
 @import "buttons";
 
-.myButton {
-  @include button(120px, 40px);
-}
 
-.success {
-  @extend .myButton;
-  border: 1px solid green;
-  color: green;
-}
-
-.warning {
-  @extend .myButton;
-  border: 1px solid yellow;
-  color: yellow;
-}
-
-.error {
-  @extend .myButton;
-  border: 1px solid red;
-  color: red;
-}
-
-
-.message {
-  @include message();
-}
-
-.success1 {
-  @extend .message;
-  border-color: green;
-}
-
-.error1 {
-  @extend .message;
-  border-color: red;
-}
-
-.warning1 {
-  @extend .message;
-  border-color: yellow;
+.bordered {
+  @include border-radius(5px);
+  border: 1px solid #ccc;
 }
