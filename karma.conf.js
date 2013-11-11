@@ -16,6 +16,7 @@ module.exports = function(config) {
     files: [
       'tests/test-main.js',
       {pattern: 'src/js/app/**/*.js', included: false},
+      {pattern: 'src/js/app/templates/**/*.html', included: false},
       {pattern: 'src/js/lib/**/*.js', included: false},
       {pattern: 'tests/**/*Spec.js', included: false}
     ],
@@ -29,7 +30,17 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    preprocessors: {
+      //"**/templates/**/*.html": ""
+      "src/js/app/**/*.js": ["coverage"]
+    },
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'tests/coverage/'
+    },
 
 
     // web server port
