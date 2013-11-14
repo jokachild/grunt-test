@@ -18,6 +18,7 @@ module.exports = function (grunt) {
         jshint: {
             files: ['Gruntfile.js', 'src/js/app/**/*.js'],
             options: {
+                reporter: require("jshint-stylish"),
                 globals: {
                     jQuery: true,
                     console: true,
